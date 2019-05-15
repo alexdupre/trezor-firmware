@@ -31,7 +31,7 @@ build legacy firmware bitcoinonly:
 build legacy emu:
   stage: build
   variables:
-    HEADLESS: "1"
+    SDL_VIDEODRIVER: "dummy"
     EMULATOR: "1"
     DEBUG_LINK: "1"
   script:

@@ -19,9 +19,11 @@ build core firmware:
 
 build core unix:
   stage: build
+  variables:
+    SDL_VIDEODRIVER: "dummy"
   script:
     - cd core
-    - pipenv run make build_unix_noui
+    - pipenv run make build_unix
   artifacts:
     name: "$CI_JOB_NAME-$CI_COMMIT_SHORT_SHA"
     untracked: true
@@ -29,9 +31,11 @@ build core unix:
 
 build core unix frozen:
   stage: build
+  variables:
+    SDL_VIDEODRIVER: "dummy"
   script:
     - cd core
-    - pipenv run make build_unix_noui_frozen
+    - pipenv run make build_unix_frozen
 
 test core unix unit:
   stage: test
